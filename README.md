@@ -11,7 +11,6 @@ Welcome to the RPG Core Combat Game! This project is a role-playing game (RPG) t
   - [Features](#features)
   - [Getting Started](#getting-started)
   - [Additional Resources](#additional-resources)
-  - [Installation](#installation)
 
 ## Project Overview
 
@@ -41,18 +40,3 @@ This repository contains the code for a basic RPG combat system in Unity.
 - [Unity Documentation](https://docs.unity3d.com/Manual/index.html)
 - [Unity Tutorials](https://learn.unity.com/learn)
 - [Unity Asset Store](https://assetstore.unity.com/)
-
-You can save this content to a file named `README.md` in your project folder. If you need any further assistance, please let me know!
-
-- **Scene Management**: Seamless transition between different scenes using portals.
-- **Player Navigation**: Navigate the player character using Unity's NavMesh system.
-- **Combat Mechanics**: Core combat functionalities (to be expanded).
-
-## Installation
-
-To set up the project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rpg-core-combat-game.git
-   ```
