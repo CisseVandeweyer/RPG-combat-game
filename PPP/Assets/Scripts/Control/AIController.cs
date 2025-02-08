@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Attributes;
 using Unity.VisualScripting;
 using UnityEngine;
 

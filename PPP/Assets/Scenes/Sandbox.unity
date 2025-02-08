@@ -2417,6 +2417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2575996854088482889, guid: 0886e25896645594298f509be64ceae3, type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6181000411554986849, guid: 0886e25896645594298f509be64ceae3, type: 3}
       propertyPath: defaultWeapon
       value: 

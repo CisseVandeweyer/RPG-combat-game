@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1934054719659226832, guid: 9380bd2f4e630874686ed873590be4dd, type: 3}
+      propertyPath: characterClass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3957067955050627601, guid: 9380bd2f4e630874686ed873590be4dd, type: 3}
       propertyPath: m_Name
       value: Archer
