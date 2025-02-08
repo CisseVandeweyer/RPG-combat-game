@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1807531762444138559, guid: ce92e710e91fa3949ad87d0f59b754fe, type: 3}
       propertyPath: m_Name
-      value: ArrowProjectileBlue
+      value: Arrow ProjectileBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 4065910742900767665, guid: ce92e710e91fa3949ad87d0f59b754fe, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 7416491553362407074, guid: c9502c89b5a399c46b8da182821ffed9, type: 3}
     - target: {fileID: 8281604476631217503, guid: ce92e710e91fa3949ad87d0f59b754fe, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
       value: 65535
