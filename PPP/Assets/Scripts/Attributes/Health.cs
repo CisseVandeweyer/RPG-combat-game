@@ -22,13 +22,27 @@ namespace RPG.Attributes
             return isDeath;
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject instagator, float damage)
         {
             health = Mathf.Max(health - damage, 0f);
             if (health == 0)
             {
                 Die();
+                AwardExperience(instagator);
             }
+        }
+
+        private void AwardExperience(GameObject instigator)
+        {
+            Experience experience = instigator.GetComponent<Experience>();
+            if (experience == null) return;
+            experience.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
+        }
+
+
+        public float GetPercentage()
+        {
+            return 100 * (health / GetComponent<BaseStats>().GetHealth());
         }
 
         private void Die()
