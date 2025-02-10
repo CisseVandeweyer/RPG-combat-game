@@ -1,6 +1,6 @@
 # RPG Core Combat Game
 
-Welkom bij de RPG Core Combat Game! Dit project is een role-playing game (RPG) die zich richt op kerngevechtsmechanieken. Het is ontwikkeld met Unity en C# als onderdeel van een vak op school.
+Welkom bij de RPG Core Combat Game! Dit project is een role-playing game (RPG) die zich richt op kerngevechtsmechanieken. Het is ontwikkeld met Unity en C#.
 
 ## Inhoudsopgave
 
