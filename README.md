@@ -1,42 +1,29 @@
 # RPG Core Combat Game
 
-Welcome to the RPG Core Combat Game! This project is a role-playing game (RPG) that focuses on core combat mechanics. It is developed using Unity and C#.
+Welkom bij de RPG Core Combat Game! Dit project is een role-playing game (RPG) die zich richt op kerngevechtsmechanieken. Het is ontwikkeld met Unity en C# als onderdeel van een vak op school.
 
-## Table of Contents
+## Inhoudsopgave
 
 - [RPG Core Combat Game](#rpg-core-combat-game)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-  - [Features# RPG Combat System](#features-rpg-combat-system)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
-  - [Additional Resources](#additional-resources)
+  - [Inhoudsopgave](#inhoudsopgave)
+  - [Projectoverzicht](#projectoverzicht)
+  - [Kenmerken](#kenmerken)
+  - [Certificaat](#certificaat)
 
-## Project Overview
+## Projectoverzicht
 
-The RPG Core Combat Game is designed to provide a foundational framework for RPG combat systems. It includes features such as scene management, player navigation, and portal-based scene transitions.
+De RPG Core Combat Game is ontworpen om een fundamenteel raamwerk te bieden voor RPG-gevechtssystemen. Het bevat functies zoals scenebeheer, spelersnavigatie en portal-gebaseerde scene-overgangen.
 
-## Features# RPG Combat System
+## Kenmerken
 
-This repository contains the code for a basic RPG combat system in Unity.
+- **Wapensysteem** met verschillende soorten wapens en animaties.
+- **Vecht systeem** met aanval-, verdedigings- en gezondheidsfunctionaliteit.
+- **Wapenopraapsysteem** voor spelers om wapens te verzamelen.
+- **Cinematisch systeem** voor het activeren van cutscenes.
+- **Scenebeheer** systeem voor het overstappen tussen verschillende scenes.
 
-## Features
+## Certificaat
 
-- **Weapon system** with different types of weapons and animations.
-- **Fighter system** with attack, defense, and health functionality.
-- **Weapon pickup** system for players to collect weapons.
-- **Cinematic system** for triggering cutscenes.
-- **Scene management** system for transitioning between different scenes.
+![Certificaat](/cerificaat.jpg)
 
-## Getting Started
-
-1. Clone or download the repository.
-2. Open the project in Unity.
-3. Explore the code and assets in the `Assets/Scripts` and `Assets/Scenes` folders.
-4. Customize the code and assets to fit your game's requirements.
-
-## Additional Resources
-
-- [Unity Documentation](https://docs.unity3d.com/Manual/index.html)
-- [Unity Tutorials](https://learn.unity.com/learn)
-- [Unity Asset Store](https://assetstore.unity.com/)
+[Download het certificaat als PDF](certificaaat.pdf)
