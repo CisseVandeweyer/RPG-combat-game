@@ -128,5 +128,10 @@ namespace RPG.Attributes
         {
             return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
+
+        public void Heal(float healthToRestore)
+        {
+            health.value = Mathf.Min(health.value + healthToRestore, GetMaxHealth());
+        }
     }
 }
