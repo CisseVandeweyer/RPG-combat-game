@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 namespace RPG.Stats
 {
@@ -8,16 +10,39 @@ namespace RPG.Stats
 
         [SerializeField] ProgressionCharacterClass[] characterClasses = null;
 
-        public float GetHealth(CharacterClass characterClass, int level)
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
+
+        public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
-            foreach (var progressionClass in characterClasses)
+            BuildLookup();
+            float[] levels = lookupTable[characterClass][stat];
+            if (levels.Length < level)
             {
-                if (progressionClass.characterClass == characterClass)
-                {
-                    // return progressionClass.health[level - 1];
-                }
+                return 0;
             }
-            return 0;
+            return levels[level - 1];
+        }
+
+        public int GetLevels(Stat stat, CharacterClass characterClass)
+        {
+            BuildLookup();
+            float[] levels = lookupTable[characterClass][stat];
+            return levels.Length;
+        }
+
+        private void BuildLookup()
+        {
+            if (lookupTable != null) return;
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+            foreach (ProgressionCharacterClass progressionClass in characterClasses)
+            {
+                var statLookupTable = new Dictionary<Stat, float[]>();
+                foreach (ProgressionStat progressionStat in progressionClass.stats)
+                {
+                    statLookupTable[progressionStat.stat] = progressionStat.levels;
+                }
+                lookupTable[progressionClass.characterClass] = statLookupTable;
+            }
         }
 
 
@@ -34,7 +59,7 @@ namespace RPG.Stats
         [System.Serializable]
         class ProgressionStat
         {
-            public stat stat;
+            public Stat stat;
             public float[] levels;
         }
     }

@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5127243944963570221, guid: e1318c4fd4441be4d9ecfbf5c1d3f800, type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 2173972488302897139, guid: be8289f37c5dfc24190e9244be060ae1, type: 3}
     - target: {fileID: 7304955779381725345, guid: e1318c4fd4441be4d9ecfbf5c1d3f800, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.96899
