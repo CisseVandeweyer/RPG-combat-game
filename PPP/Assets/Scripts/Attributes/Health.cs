@@ -4,6 +4,7 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
@@ -11,6 +12,12 @@ namespace RPG.Attributes
     {
 
         [SerializeField] float regenerationPercentage = 70;
+        [SerializeField] TakeDamageEvent takeDamage;
+
+        [System.Serializable]
+        public class TakeDamageEvent : UnityEvent<float>
+        {
+        }
         LazyValue<float> health;
 
         bool isDeath = false;
@@ -56,6 +63,10 @@ namespace RPG.Attributes
                 Die();
                 AwardExperience(instagator);
             }
+            else
+            {
+                takeDamage.Invoke(damage);
+            }
         }
 
         public float GetHealth()
@@ -77,7 +88,7 @@ namespace RPG.Attributes
 
         public float GetPercentage()
         {
-            return 100 * (health.value / GetComponent<BaseStats>().GetStat(Stat.Health));
+            return 100 * GetFraction();
         }
 
         private void Regeneratehealth()
@@ -109,6 +120,11 @@ namespace RPG.Attributes
             {
                 Die();
             }
+        }
+
+        public float GetFraction()
+        {
+            return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
     }
 }
