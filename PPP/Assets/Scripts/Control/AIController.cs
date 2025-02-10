@@ -16,11 +16,13 @@ namespace RPG.Control
 
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 5f;
+        [SerializeField] float agroCooldownTime = 5f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 2f;
         [SerializeField] float waypointWaitTime = 3f;
         [Range(0, 1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
+        [SerializeField] float shoutDistance = 5f;
 
         Fighter fighter;
         GameObject player;
@@ -30,6 +32,7 @@ namespace RPG.Control
         LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
+        float timeSinceAggrevated = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
         private void Awake()
@@ -55,7 +58,7 @@ namespace RPG.Control
         {
 
             if (health.IsDead()) return;
-            if (inAttackRangeOfPlayer() && fighter.CanAttack(player))
+            if (IsAggrevated() && fighter.CanAttack(player))
             {
                 timeSinceLastSawPlayer = 0;
                 AttackBehaviour();
@@ -70,6 +73,11 @@ namespace RPG.Control
             }
 
             timeSinceLastSawPlayer += Time.deltaTime;
+        }
+
+        public void Aggrevate()
+        {
+            timeSinceAggrevated = 0;
         }
 
         private void PatrolBehaviour()
@@ -97,6 +105,7 @@ namespace RPG.Control
         {
             timeSinceArrivedAtWaypoint += Time.deltaTime;
             timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceAggrevated += Time.deltaTime;
         }
 
         private Vector3 GetCurrentWaypoint()
@@ -123,14 +132,27 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
+            AggrevateNearbyEnemies();
         }
 
-        private bool inAttackRangeOfPlayer()
+        private void AggrevateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach (RaycastHit hit in hits)
+            {
+                AIController ai = hit.collider.GetComponent<AIController>();
+                if (ai == null) continue;
+                ai.Aggrevate();
+            }
+        }
+
+        private bool IsAggrevated()
         {
             GameObject player = GameObject.FindWithTag("Player");
             float DistanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            return DistanceToPlayer < chaseDistance;
+            return DistanceToPlayer < chaseDistance || timeSinceAggrevated < agroCooldownTime;
         }
 
 
